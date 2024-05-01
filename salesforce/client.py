@@ -12,6 +12,8 @@ class Client(object):
     def __init__(self, client_id, client_secret, version, instance_url=None):
         self.client_id = client_id
         self.client_secret = client_secret
+        if instance_url[-1] == '/':
+            instance_url = instance_url[:-1]
         self.instance_url = self.BASE_URL.format(instance_url)
         self.rest_url = self.instance_url + '{}/'.format(version)
         if version.startswith('v'):
