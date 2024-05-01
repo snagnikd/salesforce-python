@@ -11,7 +11,7 @@ pip install salesforce-python
 ```
 from salesforce.client import Client
 
-client = Client('CLIENT_KEY', 'CLIENT_SECRET', 'https://na50.salesforce.com/', 'v41.0') # Host must have trailing slash
+client = Client('CLIENT_KEY', 'CLIENT_SECRET', 'v41.0', 'https://na50.salesforce.com/') # Host must have trailing slash
 ```
 
 Get authorization url
