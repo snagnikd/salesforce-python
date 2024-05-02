@@ -98,6 +98,10 @@ class Client(object):
     @access_token_required
     def create_sobject(self, sobject, data):
         return self._post(self.rest_url + 'sobjects/{}/'.format(sobject), json=data)
+    
+    @access_token_required
+    def edit_sobject(self, sobject, record_id, data):
+        return self._patch(self.rest_url + 'sobjects/{}/{}'.format(sobject, record_id), json=data)
 
     @access_token_required
     def get_sobject_describe(self, sobject):
@@ -153,6 +157,9 @@ class Client(object):
 
     def _put(self, url, **kwargs):
         return self._request('PUT', url, **kwargs)
+    
+    def _patch(self, url, **kwargs):
+        return self._request('PATCH', url, **kwargs)
 
     def _delete(self, url, **kwargs):
         return self._request('DELETE', url, **kwargs)
